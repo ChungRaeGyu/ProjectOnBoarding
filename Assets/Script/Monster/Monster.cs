@@ -24,6 +24,7 @@ public class Monster : MonoBehaviour
         animator = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
         stateMachine.ChangeState(stateMachine.WalkState);
+        GameManager.Instance.currentMonster = this;
     }
 
     private void Update()
@@ -49,7 +50,13 @@ public class Monster : MonoBehaviour
 
     public void DieAction()
     {
+        Debug.Log("DieAction");
         Destroy(gameObject);
+        MonsterSpawner.Instance.Spawn();
     }
 
+    private void OnMouseDown()
+    {
+        GameManager.Instance.OpenPanel();
+    }
 }

@@ -142,9 +142,9 @@ TextureImporter:
         x: 43
         y: 43
         width: 26
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,10 +162,10 @@ TextureImporter:
         serializedVersion: 2
         x: 141
         y: 43
-        width: 33
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 23
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,10 +183,10 @@ TextureImporter:
         serializedVersion: 2
         x: 241
         y: 43
-        width: 34
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 24
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -205,9 +205,9 @@ TextureImporter:
         x: 341
         y: 43
         width: 24
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,6 +215,48 @@ TextureImporter:
       bones: []
       spriteID: 049fead51f2b0ab4f8b69e02fc700b91
       internalID: 441425285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton-Death_2
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 46
+        width: 8
+        height: 6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d15fe2c2e8aa5b24fb69e0932ab78616
+      internalID: 1000204500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton-Death_4
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 44
+        width: 7
+        height: 6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72a5563df8df4a34aa2624ced6799b61
+      internalID: -561717145
       vertices: []
       indices: 
       edges: []

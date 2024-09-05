@@ -1,13 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterSpawner : MonoBehaviour
+public class MonsterSpawner : Singleton<MonsterSpawner>
 {
     public GameObject MonsterPrefab;
-
-    public event Action OnSpawn;
+    public GameObject hpBar;
     public List<Dictionary<string, object>> monsterData;
     public List<RuntimeAnimatorController> animators;
 
@@ -28,8 +26,13 @@ public class MonsterSpawner : MonoBehaviour
         GameObject monster = Instantiate(MonsterPrefab, gameObject.transform);
         Monster monsterScript = monster.GetComponent<Monster>();
         monsterScript.animator.runtimeAnimatorController = animators[count];
-
-        monsterScript.data = new MonsterData((string)monsterData[count]["Name"], (string)monsterData[count]["Grade"], (float)monsterData[count]["Speed"], (int)monsterData[count]["Health"]);
+        string name = (string)monsterData[count]["Name"];
+        string grade = (string)monsterData[count]["Grade"];
+        float speed = Convert.ToSingle(monsterData[count]["Speed"]);
+        Debug.Log(speed);
+        int health = (int)monsterData[count]["Health"];
+        monsterScript.data = new MonsterData(name,grade,speed,health);
         count++;
+        hpBar.SetActive(true);
     }
 }
