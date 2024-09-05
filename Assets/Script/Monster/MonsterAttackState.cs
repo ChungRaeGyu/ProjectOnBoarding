@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class MonsterAttackState : MonsterBaseState
 {
+    float time;
     public MonsterAttackState(MonsterStateMachine stateMachine) : base(stateMachine)
     {
     }
     public override void Enter()
     {
         StartAnimation(stateMachine.monster.animationData.AttackParameterHash);
+        time = 0;
     }
     public override void Exit()
     {
@@ -18,11 +20,14 @@ public class MonsterAttackState : MonsterBaseState
 
     public override void Update()
     {
-        base.Update();
-        Debug.Log(stateMachine.monster.animationProgress);
-        if (stateMachine.monster.animationProgress >= 1)
+
+        if (time < stateMachine.monster.animationProgress)
         {
-            //stateMachine.ChangeState(stateMachine.IdleState);
+            time += Time.deltaTime;
+        }
+        else
+        {
+            stateMachine.ChangeState(stateMachine.IdleState);
             Debug.Log("IdleState변경");
         }
         return;

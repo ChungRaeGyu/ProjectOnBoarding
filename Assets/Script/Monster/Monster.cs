@@ -15,6 +15,8 @@ public class Monster : MonoBehaviour
 
     public float animationProgress;
 
+    public bool endAnimation;
+
     private void Awake()
     {
         stateMachine = new MonsterStateMachine(this);
@@ -34,7 +36,7 @@ public class Monster : MonoBehaviour
     }
     public void TakeDamage()
     {
-        data.health -= 1;
+        data.health -= 100;
         if (data.health <= 0)
         {
             stateMachine.ChangeState(stateMachine.DeathState);

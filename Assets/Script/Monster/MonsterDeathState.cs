@@ -2,11 +2,13 @@
 
 public class MonsterDeathState : MonsterBaseState
 {
+    float time;
     public MonsterDeathState(MonsterStateMachine stateMachine) : base(stateMachine)
     {
     }
     public override void Enter()
     {
+        time = 0;
         StartAnimation(stateMachine.monster.animationData.DieParameterHash);
         Debug.Log("Enter : " + stateMachine.monster.animationProgress);
 
@@ -18,8 +20,11 @@ public class MonsterDeathState : MonsterBaseState
 
     public override void Update()
     {
-        Debug.Log(stateMachine.monster.animationProgress);
-        if (stateMachine.monster.animationProgress >= 1)
+        if (time < stateMachine.monster.animationProgress)
+        {
+            time +=Time.deltaTime;
+        }
+        else
         {
             stateMachine.monster.DieAction();
             Debug.Log("죽음");

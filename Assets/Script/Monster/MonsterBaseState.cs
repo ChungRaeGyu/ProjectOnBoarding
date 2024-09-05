@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class MonsterBaseState : IState
 {
@@ -44,7 +45,8 @@ public class MonsterBaseState : IState
     {
         stateMachine.monster.animator.SetBool(hash, true);
         AnimatorStateInfo info = stateMachine.monster.animator.GetCurrentAnimatorStateInfo(0);
-        stateMachine.monster.animationProgress = info.normalizedTime;
+        stateMachine.monster.animationProgress = info.length;
+        stateMachine.monster.endAnimation = false;
     }
     protected void StopAnimation(int hash)
     {
@@ -52,7 +54,7 @@ public class MonsterBaseState : IState
 
     }
 
-    private void TakeDamage()
+/*    private void TakeDamage()
     {
         if (stateMachine.monster.data.health <= 0)
         {
@@ -63,6 +65,6 @@ public class MonsterBaseState : IState
             stateMachine.ChangeState(stateMachine.HurtState);
         }
         return;
-    }
+    }*/
 }
 
