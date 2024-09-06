@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     {
         //Resources.Load<GameObject>("Prefabs/Arrow");
         GameObject arrow = Instantiate(Arrow);
-        Vector2 spawnPos = new Vector2(transform.position.x+1, transform.position.y+1);
+        Vector2 spawnPos = new Vector2(transform.position.x+1, transform.position.y+0.5f);
         arrow.transform.position = spawnPos;
         arrow.GetComponent<Arrow>().SetTarget(monster);
     }

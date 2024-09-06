@@ -12,6 +12,7 @@ public class HPBar : MonoBehaviour
     {
         maxHealth = GameManager.Instance.currentMonster.data.health;
         Debug.Log("¿­±â");
+        ;
     }
 
     // Update is called once per frame
@@ -19,11 +20,12 @@ public class HPBar : MonoBehaviour
     {
         if (GameManager.Instance.currentMonster != null)
         {
-            bar.fillAmount = GameManager.Instance.currentMonster.data.health / maxHealth;
+            float currentHealth = GameManager.Instance.currentMonster.data.health;
+            bar.fillAmount = currentHealth / maxHealth;
             Vector2 pos = new Vector2(GameManager.Instance.currentMonster.transform.position.x, GameManager.Instance.currentMonster.transform.position.y + 1.5f);
             transform.position = pos;
         }
-        else
+        if (GameManager.Instance.currentMonster.data.health <= 0)
         {
             gameObject.SetActive(false);
             Debug.Log("²ô±â");

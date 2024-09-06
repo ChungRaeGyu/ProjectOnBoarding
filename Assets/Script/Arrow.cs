@@ -17,7 +17,7 @@ public class Arrow : MonoBehaviour
         if(target != null)
             gameObject.transform.position = Vector2.MoveTowards(
                 gameObject.transform.position, 
-                target.transform.position, 
+                new Vector2(target.transform.position.x,target.transform.position.y+0.5f), 
                 speed*Time.deltaTime);
         else
         {
