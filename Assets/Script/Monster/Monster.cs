@@ -37,14 +37,15 @@ public class Monster : MonoBehaviour
     }
     public void TakeDamage()
     {
-        data.health -= 100;
+        data.health -= 1;
         if (data.health <= 0)
         {
             stateMachine.ChangeState(stateMachine.DeathState);
         }
         else
         {
-            stateMachine.ChangeState(stateMachine.HurtState);
+            if(stateMachine.currentState!=stateMachine.AttackState)
+                stateMachine.ChangeState(stateMachine.HurtState);
         }
     }
 

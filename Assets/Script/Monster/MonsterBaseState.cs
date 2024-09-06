@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class MonsterBaseState : IState
 {
+
+    private bool isAttack = false;
+    private float coolTime = 1f;
+    private float time = 0;
     public MonsterStateMachine stateMachine;
 
     public MonsterBaseState(MonsterStateMachine stateMachine)
@@ -21,7 +25,25 @@ public class MonsterBaseState : IState
 
     public virtual void Update()
     {
-
+        if (Mathf.Approximately(GameManager.Instance.Player.transform.position.x + 1.5f, stateMachine.monster.transform.position.x))
+        {
+            if (isAttack)
+            {
+                if (time < coolTime)
+                {
+                    time += Time.deltaTime;
+                }
+                else
+                {
+                    isAttack = false;
+                }
+            }
+            else
+            {
+                stateMachine.ChangeState(stateMachine.AttackState);
+                isAttack = true;
+            }
+        }
     }
     public virtual void PhysicalUpdate()
     {

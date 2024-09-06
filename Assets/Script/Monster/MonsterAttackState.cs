@@ -17,10 +17,8 @@ public class MonsterAttackState : MonsterBaseState
     {
         StopAnimation(stateMachine.monster.animationData.AttackParameterHash);
     }
-
     public override void Update()
     {
-
         if (time < stateMachine.monster.animationProgress)
         {
             time += Time.deltaTime;
@@ -30,7 +28,6 @@ public class MonsterAttackState : MonsterBaseState
             stateMachine.ChangeState(stateMachine.IdleState);
             Debug.Log("IdleState변경");
         }
-        return;
     }
     public override void PhysicalUpdate()
     {

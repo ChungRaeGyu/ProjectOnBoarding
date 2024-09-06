@@ -17,6 +17,7 @@ public class MonsterHurtState : MonsterBaseState
     }
     public override void Update()
     {
+        base.Update();
         if(time < stateMachine.monster.animationProgress)
         {
             time += Time.deltaTime;
@@ -24,8 +25,14 @@ public class MonsterHurtState : MonsterBaseState
         }
         else
         {
-            stateMachine.ChangeState(stateMachine.WalkState);
-            Debug.Log("WalkState");
+            if (Mathf.Approximately(GameManager.Instance.Player.transform.position.x + 1.5f, stateMachine.monster.transform.position.x))
+            {
+                stateMachine.ChangeState(stateMachine.IdleState);
+            }
+            else
+            {
+                stateMachine.ChangeState(stateMachine.WalkState);
+            }
         }
         return;
     }
